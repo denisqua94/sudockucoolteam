@@ -18,7 +18,7 @@ function sudokuParse(content, puzzleNumber = 0) {
 
 function readAndSolve(err, data) {
   if (err) {
-    throw err;
+    throw err;  
   }
   let puzzle = sudokuParse(data);
 
@@ -39,3 +39,4 @@ fs.readFile(
   readAndSolve
 );
 
+module.exports = {sudokuParse}
