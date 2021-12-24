@@ -9,8 +9,12 @@
 
  function solve(boardString) {
   
-  let board = boardString.slice(0, 1).join().split('')
-  
+  let board1 = boardString.slice(0, 1).join().split('')
+  let board = []
+  for(let i = 0; i <board1.length; i += 9){
+   board.push(board1.slice(i, i+9))
+  }
+
   return board
 }
 console.table(solve(boardString));
