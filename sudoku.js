@@ -42,8 +42,8 @@ function fillTheRow(board) {
         const random = `${Math.floor((Math.random() * 9) + 1)}`;
 
         if (board[rowIndex][colIndex] === '-') {
-          if (!board[rowIndex].includes(random) && canInsertNumber === true) {
-            board[rowIndex][colIndex] = random;
+          if (!board[rowIndex].includes(random) ) {
+            canInsertNumber = true
           }
         }
 
@@ -51,12 +51,13 @@ function fillTheRow(board) {
         for (let k = 0; k < board[rowIndex].length; k += 1) {
           col += board[k][colIndex]
           
-          if (!col.includes(random)) {
-            canInsertNumber = true
+          if (!col.includes(random) && canInsertNumber) {
+          
+            board[rowIndex][colIndex] = random;
           }
         }
 
-        console.log(col)
+        console.table(board)
       }
     }
   }
