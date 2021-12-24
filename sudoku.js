@@ -40,10 +40,18 @@ function fillTheRow(board) {
       for (let j = 0; j < board[i].length; j += 1) {
         if (board[i][j] === '-') {
           const random = `${Math.floor((Math.random() * 9) + 1)}`;
-          if (!board[i].includes(random)) {
+          if (!board[i].includes(random) && s === true) {
             board[i][j] = random;
           }
+        }let col = ''
+        for (let k = 0; k < board[i].length; k += 1){
+          col += board[k][j]
+          let s
+          if (!col.includes(random)) {
+            s =true
+          }
         }
+        console.log(col)
       }
     }
   }
