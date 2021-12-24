@@ -1,11 +1,11 @@
- const fs = require ('fs')
+const fs = require('fs')
 
 // const boardString = fs.readFileSync('./sudoku-puzzles.txt','utf8').split('\n');
 // const {sudokuParse} = require('./runner')
 
 
 //  function solve(boardString) {
-  
+
 //   let board1 = boardString.slice(0, 1).join().split('')
 //   let board = []
 //   for(let i = 0; i <board1.length; i += 9){
@@ -36,21 +36,26 @@ const board = beautifyTheString(string);
 
 function fillTheRow(board) {
   while (board.flat().includes('-')) {
-    for (let i = 0; i < board.length; i += 1) {
-      for (let j = 0; j < board[i].length; j += 1) {
-        if (board[i][j] === '-') {
-          const random = `${Math.floor((Math.random() * 9) + 1)}`;
-          if (!board[i].includes(random) && s === true) {
-            board[i][j] = random;
-          }
-        }let col = ''
-        for (let k = 0; k < board[i].length; k += 1){
-          col += board[k][j]
-          let s
-          if (!col.includes(random)) {
-            s =true
+    for (let rowIndex = 0; rowIndex < board.length; rowIndex += 1) {
+      for (let colIndex = 0; colIndex < board[rowIndex].length; colIndex += 1) {
+        let canInsertNumber = false;
+        const random = `${Math.floor((Math.random() * 9) + 1)}`;
+
+        if (board[rowIndex][colIndex] === '-') {
+          if (!board[rowIndex].includes(random) && canInsertNumber === true) {
+            board[rowIndex][colIndex] = random;
           }
         }
+
+        let col = ''
+        for (let k = 0; k < board[rowIndex].length; k += 1) {
+          col += board[k][colIndex]
+          
+          if (!col.includes(random)) {
+            canInsertNumber = true
+          }
+        }
+
         console.log(col)
       }
     }
