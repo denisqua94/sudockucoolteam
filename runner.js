@@ -38,5 +38,8 @@ fs.readFile(
   'utf-8',
   readAndSolve
 );
+<<<<<<< HEAD
 
+=======
+>>>>>>> 5a9917248d38b8a49fa5893f18c0a2a697246655
 module.exports = {sudokuParse}
